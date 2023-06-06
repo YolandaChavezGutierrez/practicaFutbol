@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <h1>Estadios</h1>
+
+    <div class="contenedor">
+        {% for estadio in estadios %}
+        <div class="tarjeta">
+            <img src="{{ estadio.imagen.url }}" alt="X" width="200" height="150">
+            <p>Nombre: {{estadio.nombre}}</p>
+            <p>Liga: {{estadio.liga}}</p>
+            <form action="{% url 'eliminar_estadio' estadio.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Eliminar</button>
+            </form>
+            <form action="{% url 'editar_estadio' estadio.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Editar</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futbol</title>
+    <link rel="stylesheet" href="{% static '/styles/main.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li>
+                <a href="/">Inicio</a>
+            </li>
+            <li>
+                <a href="/arbitros">Arbitros</a>
+            </li>
+            <li>
+                <a href="/cedulas">Cedulas</a>
+            </li>
+            <li>
+                <a href="/equipos">Equipos</a>
+            </li>
+            <li>
+                <a href="/estadios">Estadios</a>
+            </li>
+            <li>
+                <a href="/juegos">Juegos</a>
+            </li>
+            <li>
+                <a href="/jugadores">Jugadores</a>
+            </li>
+            <li>
+                <a href="/ligas">Ligas</a>
+            </li>
+            <li>
+                <a href="/crear_arbitro">Crear arbitro</a>
+            </li>
+            <li>
+                <a href="/crear_cedula">Crear cedula</a>
+            </li>
+            <li>
+                <a href="/crear_equipo">Crear equipo</a>
+            </li>
+            <li>
+                <a href="/crear_estadio">Crear estadio</a>
+            </li>
+            <li>
+                <a href="/crear_juego">Crear juego</a>
+            </li>
+            <li>
+                <a href="/crear_jugador">Crear jugador</a>
+            </li>
+            <li>
+                <a href="/crear_liga">Crear liga</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="contenido">
+        {% block content %}
+    
+        {% endblock %}
+    </main>
+    
+</body>
+</html>

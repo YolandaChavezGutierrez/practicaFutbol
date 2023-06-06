@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <h1>Cedulas</h1>
+
+    <div class="contenedor">
+        {% for cedula in cedulas %}
+        <div class="tarjeta">
+            <p>Fecha: {{cedula.fecha}}</p>
+            <p>Hora inicio: {{cedula.horaInicio}}</p>
+            <p>Hora fin: {{cedula.horaFin}}</p>
+            <p>Resultado: {{cedula.resultado}}</p>
+            <p>Estado: {{cedula.estado}}</p>
+            <p>Juego: {{cedula.juego_id}}</p>
+            <form action="{% url 'eliminar_cedula' cedula.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Eliminar</button>
+            </form>
+            <form action="{% url 'editar_cedula' cedula.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Editar</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

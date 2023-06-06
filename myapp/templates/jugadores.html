@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <h1>Jugadores</h1>
+
+    <div class="contenedor">
+        {% for jugador in jugadores %}
+        <div class="tarjeta">
+            <img src="{{ jugador.imagen.url }}" alt="X" width="200" height="150">
+            <p>Nombre: {{jugador.nombre}}</p>
+            <p>Numero de playera: {{jugador.numeroPlayera}}</p>
+            <p>Posicion: {{jugador.posicion}}</p>
+            <p>Equipo: {{jugador.equipo}}</p>
+            <form action="{% url 'eliminar_jugador' jugador.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Eliminar</button>
+            </form>
+            <form action="{% url 'editar_jugador' jugador.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Editar</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+    <h1>Arbitros</h1>
+        <div class="contenedor">
+            {% for arbitro in arbitros %}
+            <div class="tarjeta">
+                <img src="{{ arbitro.imagen.url }}" alt="X" width="200" height="150">
+                <p>Nombre: {{arbitro.nombre}}</p>
+                <p>Liga: {{arbitro.liga}}</p>
+                <form action="{% url 'eliminar_arbitro' arbitro.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Eliminar</button>
+                </form>
+                <form action="{% url 'editar_arbitro' arbitro.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Editar</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+
+{% endblock %}

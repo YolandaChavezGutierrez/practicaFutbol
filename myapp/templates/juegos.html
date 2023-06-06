@@ -1,0 +1,26 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1>Juegos</h1>
+
+    <div class="contenedor">
+        {% for juego in juegos %}
+        <div class="tarjeta">
+            <p>Fecha: {{juego.fecha}}</p>
+            <p>Estadio: {{juego.estadio}}</p>
+            <p>Liga: {{juego.liga}}</p>
+            <p>Contrincante: {{juego.contrincante}}</p>
+            <form action="{% url 'eliminar_juego' juego.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Eliminar</button>
+            </form>
+            <form action="{% url 'editar_juego' juego.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Editar</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
